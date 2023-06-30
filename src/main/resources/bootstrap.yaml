@@ -1,13 +1,20 @@
 spring:
+  application.name: discovery-server
   profiles:
     active: dev
-  cloud.config:
-    profile: dev
-    enabled: true
-    fail-fast: true
-    uri: http://localhost:8888
-  application.name: discovery-server
-logging:
-  level:
-    root: info
-server.port: 8761
+  cloud:
+    config:
+      name: config-server
+      profile: dev
+      enabled: true
+      fail-fast: true
+      uri: http://localhost:8888
+server.port: 8082
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka
