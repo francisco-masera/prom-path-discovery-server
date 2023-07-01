@@ -11,10 +11,8 @@ spring:
       uri: http://localhost:8888
 server.port: 8082
 eureka:
-  instance:
-    preferIpAddress: true
   client:
-    registerWithEureka: true
+    registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://localhost:8082/eureka
