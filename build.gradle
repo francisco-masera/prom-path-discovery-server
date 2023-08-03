@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.5.14'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id "org.sonarqube" version "4.2.1.3168"
 }
 
 group = 'org.dargor'
@@ -20,17 +21,25 @@ ext {
 }
 
 dependencies {
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
-    implementation 'org.springframework.cloud:spring-cloud-starter-config'
-    implementation 'org.springframework.cloud:spring-cloud-config-server'
-    implementation 'org.springframework.cloud:spring-cloud-config-client'
-    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    implementation(
+            'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server',
+            'org.springframework.cloud:spring-cloud-starter-config',
+            'org.springframework.cloud:spring-cloud-config-server',
+            'org.springframework.cloud:spring-cloud-config-client',
+            'org.springframework.cloud:spring-cloud-starter-bootstrap',
+
+    )
+
+    productionRuntimeClasspath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.3.0.3225'
 
     compileOnly 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "org.sonarqube"
 
 dependencyManagement {
     imports {
