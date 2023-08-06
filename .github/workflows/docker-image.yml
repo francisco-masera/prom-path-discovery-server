@@ -22,7 +22,7 @@ jobs:
         password: ${{ secrets.DEPLOY_TOKEN }}
     - name: Build the Docker image
       run: |
-        docker build . --tag ghcr.io/dargor94/discovery-server:latest
+        docker build . --file Dockerfile --tag ghcr.io/dargor94/discovery-server:latest
         docker push ghcr.io/dargor94/discovery-server:latest
         docker run ghcr.io/dargor94/discovery-server:latest
 
