@@ -23,6 +23,6 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag discovery-server:latest
-        docker push hcr.io/dargor94/discovery-server:latest
+        docker push ghcr.io/dargor94/discovery-server:latest
         docker run ghcr.io/dargor94/discovery-server:latest
 
