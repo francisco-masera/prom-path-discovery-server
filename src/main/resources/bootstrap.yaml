@@ -8,7 +8,7 @@ spring:
       profile: dev
       enabled: true
       fail-fast: true
-      uri: http://localhost:8888
+      uri: http://ghcr.io/dargor94/config-server:8888
 server.port: 8082
 eureka:
   client:
