@@ -28,7 +28,6 @@ dependencies {
             'org.springframework.cloud:spring-cloud-config-server',
             'org.springframework.cloud:spring-cloud-config-client',
             'org.springframework.cloud:spring-cloud-starter-bootstrap',
-            'org.springframework.cloud:spring-cloud-starter-zipkin:2.2.8.RELEASE',
 
     )
 
